@@ -17,16 +17,30 @@
 
  app.use('/api/posts', posts);
  
+ // Handle Production
 
+   if(process.env.NODE_ENV === 'production'){
+
+      app.use(express.static(__dirname + '/public')); 
+
+
+   } 
+   //Handel SPA
+
+   app.get(/.*/, (res,req) => {
+
+      res.sendFile(__dirname + '/public/index.html');
+
+   });
 
 
  //Creamos una constante para el puerto concreto que quramos usar; 
- const port = process.env.PORT || 5000;
+    const port = process.env.PORT || 5000;
 
  //Empezamos el server ecuchando en el port especializado.
- app.listen(port, () => {
-     //Respuesta de node.
-     console.log(`Server started on ${port}`)
-
- });
+   app.listen(port, () => 
+      //Respuesta de node.
+      console.log(`Server started on port ${port}`)
+     
+    );
 
