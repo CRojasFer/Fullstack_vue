@@ -47,7 +47,7 @@
 
  async function loadPostsCollection(){
 
-    const client = await mongodb.MongoClient.connect('mongodb+srv://lite-dex:#firemonbitesdiabase8@cluster0.sjklt.mongodb.net/Fullstack-Vue-Node&Express-Try?retryWrites=true&w=majority',{ 
+    const client = await mongodb.MongoClient.connect('mongodb+srv://<user>:<password>@cluster0.sjklt.mongodb.net/Fullstack-Vue-Node&Express-Try?retryWrites=true&w=majority',{ 
        
          useNewUrlParser: true
     });  
